@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\signupRequest;
+use Illuminate\Support\Facades\Session;
 
 class signupController extends Controller
 {
@@ -24,6 +25,7 @@ class signupController extends Controller
      */
     public function displayInfor(signupRequest $request)
     {
+        $userSession = session('useSession', []);
         // Lấy dữ liệu từ request và tạo mảng người dùng
         $user = [
             'name' => $request->input('name'),
@@ -34,7 +36,14 @@ class signupController extends Controller
             'address' => $request->input('address'),
         ];
 
+        $userSession[]=$user;
+        session(['userSession' => $userSession]);
         // Trả về view với dữ liệu người dùng
-        return view('signup')->with('user', $user);
+        return view('signup')->with('userSession', $userSession);
+    }
+    public function clear() {
+        Session::forget('userSession');
+        return redirect('/');
     }
 }
+

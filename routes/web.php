@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PostController;
-use App\Http\Controllers\signupController;
+// use App\Http\Controllers\signupController;
+use App\Http\Controllers\CovidController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,9 @@ use App\Http\Controllers\signupController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/welcome', function () {
 //     return 'Chào mừng các bạn đã đến với PNV';
@@ -31,11 +32,12 @@ Route::get('/', function () {
 // });
 
 // Route::get('/signup', [signupController::class, 'signup']);
-Route::get('/signup', function () {
-    return view('signup');
-});
-Route::post('/signup', [signupController::class, 'displayInfor']);
+// Route::get('/covid', function () {
+//     return view('Covid');
+// });
+// Route::post('/signup', [signupController::class, 'displayInfor']);
 
+Route::get('/covid', [CovidController::class, 'getData']);
 ?>
 
 

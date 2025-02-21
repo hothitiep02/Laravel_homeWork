@@ -47,13 +47,16 @@
         </div>
         <button type="submit" class="btn btn-primary" style="left: 200px;">OK</button>
         <div class="display-infor">
-            @if(isset($user))
-                <p>Name: {{$user['name']}}</p>
-                <p>Age: {{$user['age']}}</p>
-                <p>Date: {{$user['date']}}</p>
-                <p>Phone: {{$user['phone']}}</p>
-                <p>Website: {{$user['web']}}</p>
-                <p>Address: {{$user['address']}}</p>
+            @if(isset($userSession))
+                @foreach($userSession as $user)
+                    <p>Name: {{$user['name']}}</p>
+                    <p>Age: {{$user['age']}}</p>
+                    <p>Date: {{$user['date']}}</p>
+                    <p>Phone: {{$user['phone']}}</p>
+                    <p>Website: {{$user['web']}}</p>
+                    <p>Address: {{$user['address']}}</p>
+                    <hr>
+                @endforeach
             @endif
         </div>
     </form>
