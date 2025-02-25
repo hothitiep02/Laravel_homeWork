@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PostController;
 // use App\Http\Controllers\signupController;
-use App\Http\Controllers\CovidController;
+// use App\Http\Controllers\CovidController;
+use App\Http\Controllers\MockAPIController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +39,11 @@ use App\Http\Controllers\CovidController;
 // });
 // Route::post('/signup', [signupController::class, 'displayInfor']);
 
-Route::get('/covid', [CovidController::class, 'getData']);
+// Route::get('/covid', [CovidController::class, 'getData']);
+
+Route::resource('MockAPI', MockAPIController::class);
+
+Route::get('/products',[ProductController::class, 'index']) -> name('products.indexindex')
 ?>
 
 
