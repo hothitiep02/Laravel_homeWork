@@ -41,9 +41,9 @@ use App\Http\Controllers\ProductController;
 
 // Route::get('/covid', [CovidController::class, 'getData']);
 
-Route::resource('MockAPI', MockAPIController::class);
+Route::resource('products', MockAPIController::class);
 
-Route::get('/products',[ProductController::class, 'index']) -> name('products.indexindex')
+Route::get('/products',[ProductController::class, 'index']) -> name('products.index')
 ?>
 
 

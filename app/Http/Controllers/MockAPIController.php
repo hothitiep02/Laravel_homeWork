@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http; // Corrected the spelling here
-use App\Http\Requests\StoreProductRequest; // Make sure the StoreProductRequest is imported correctly
+use Illuminate\Support\Facades\Http;
+use App\Http\Requests\StoreProductRequest;
 
 class MockAPIController extends Controller
 {
-    private $apiUrl = "https://656ca88ee1e03bfd572e9c16.mockapi.io/products";                                                    
-    
+    private $apiUrl = "https://656ca88ee1e03bfd572e9c16.mockapi.io/products";
+
     // Lấy danh sách sản phẩm
     public function index()
     {
         $response = Http::get($this->apiUrl);
-
-        // Assuming response contains the list of products
-        $products = $response->json(); // Parse the JSON response into an array
+        $products = $response->json(); // Chuyển đổi dữ liệu JSON thành mảng
         return view('products.index', compact('products'));
     }
 
@@ -44,7 +42,7 @@ class MockAPIController extends Controller
         $response = Http::get("$this->apiUrl/$id");
 
         if ($response->successful()) {
-            $product = $response->json(); // Parse the JSON response
+            $product = $response->json(); // Chuyển đổi dữ liệu JSON thành mảng
             return view('products.edit', compact('product'));
         }
 

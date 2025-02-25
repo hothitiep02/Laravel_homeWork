@@ -12,10 +12,8 @@
         <h2>Thêm sản phẩm</h2>								
         <form action="{{ route('products.store') }}" method="POST">								
             @csrf								
-            <input type="text" name="name" placeholder="Tên sản phẩm" required class="form-control mb-3">								
-            <textarea name="description" placeholder="Mô tả" class="form-control mb-3"></textarea>								
-            <input type="number" name="price" placeholder="Giá" required class="form-control mb-3">								
-            <input type="number" name="quantity" placeholder="Số lượng" required class="form-control mb-3">								
+            <input type="text" name="name" placeholder="Tên sản phẩm" required class="form-control mb-3">			
+            <input type="text" name="avatar" placeholder="Nhap URL hinh anh" required class="form-control mb-3">											
             <button type="submit" class="btn btn-success">Lưu</button>								
         </form>								
     </div>								
