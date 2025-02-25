@@ -13,7 +13,7 @@ class MockAPIController extends Controller
     // Lấy danh sách sản phẩm
     public function index()
     {
-        $response = Http::get($this->apiUrl);
+        $response = Http::get($this->apiUrl); // Lay API url vegit 
         $products = $response->json(); // Chuyển đổi dữ liệu JSON thành mảng
         return view('products.index', compact('products'));
     }
