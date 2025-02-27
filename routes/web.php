@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MockAPIController;
 use App\Http\Controllers\ProductController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +44,35 @@ use App\Http\Controllers\ProductController;
 
 Route::resource('products', MockAPIController::class);
 
-Route::get('/products',[ProductController::class, 'index']) -> name('products.index')
+Route::get('/products',[ProductController::class, 'index']) -> name('products.index');
+
+//Master
+use App\Http\Controllers\PageController;
+Route::get('/', function(){
+    return view('welcome');
+});
+
+Route::get('/index', [ PageController::class, 'getIndex']);
+
+Route::get('loaisanpham',[
+    'as'=>'loaisanpham',
+    'use'=>'PageController@getLoaiSp'
+]);
+
+Route::get('chi-tiet-san-pham',[				
+	'as'=>'chitietsanpham',			
+	'uses'=>'PageController@geChitiet'			
+	]);			
+
+Route::get('lien_he',[
+    'as'=>'lienhe',
+    'uses'=>'PageController@geLienhe'
+]);
+
+Route::get('gioi_thieu',[
+    'as'=>'about',
+    'uses'=>'PageController@getAbout'
+]);
 ?>
 
 
