@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\CovidController;
 use App\Http\Controllers\MockAPIController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Schema;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +43,62 @@ use App\Http\Controllers\ProductController;
 
 // Route::get('/covid', [CovidController::class, 'getData']);
 
-Route::resource('products', MockAPIController::class);
+// Route::resource('products', MockAPIController::class);
 
-Route::get('/products',[ProductController::class, 'index']) -> name('products.index')
+// Route::get('/products',[ProductController::class, 'index']) -> name('products.index');
+
+//Master
+// use App\Http\Controllers\PageController;
+// Route::get('/', function(){
+//     return view('welcome');
+// });
+
+// Route::get('/index', [ PageController::class, 'getIndex']);
+
+// Route::get('loaisanpham',[
+//     'as'=>'loaisanpham',
+//     'use'=>'PageController@getLoaiSp'
+// ]);
+
+// Route::get('chi-tiet-san-pham',[				
+// 	'as'=>'chitietsanpham',			
+// 	'uses'=>'PageController@geChitiet'			
+// 	]);			
+
+// Route::get('lien_he',[
+//     'as'=>'lienhe',
+//     'uses'=>'PageController@geLienhe'
+// ]);
+
+// Route::get('gioi_thieu',[
+//     'as'=>'about',
+//     'uses'=>'PageController@getAbout'
+// ]);
+
+// use App\Http\Controllers\ShopController;
+// Route::get('/', function(){
+//     return view('welcome');
+// });
+
+// Route::get('/shop', [ ShopController::class, 'getIndex']);
+
+// Route::get('database', function() {
+//     Schema::create('loaisanpham',function($table) {
+//         $table->increments('ID');
+//         $table->string('Name',200);
+//         $table->Float('price');
+//         $table->string('Image');
+//     });
+//     echo "da thuc hien lenh tao bang thanh cong";
+// });
+
+// Route::get('products', function() {
+//     echo "Đã thực hiện lệnh tạo bảng thành công";
+// });
+
+use App\Http\Controllers\CreateProductsController;
+Route::get('/products', [ CreateProductsController::class, 'create']);
+
 ?>
 
 
