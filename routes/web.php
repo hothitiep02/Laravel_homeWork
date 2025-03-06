@@ -99,6 +99,8 @@ use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\CreateProductsController;
 Route::get('/products', [ CreateProductsController::class, 'create']);
 
+use App\Http\Controllers\CreateTableController;
+Route::get('/table', [ CreateTableController::class, 'createAllTables']);
 ?>
 
 
